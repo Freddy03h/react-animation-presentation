@@ -1,0 +1,13 @@
+return (
+  <div className='DropDown'>
+    <Button
+      active={this.state.isOpen}
+      onClick={this.toggleOpen}
+    >
+      {this.props.label}
+    </Button>
+    <div className='DropDown__Content'>
+      {this.props.children}
+    </div>
+  </div>
+)

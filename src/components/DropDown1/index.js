@@ -24,11 +24,12 @@ class DropDown1 extends Component {
 
     return (
       <div className='DropDown1'>
-        <div onClick={this.toggleOpen}>
-          <Button active={this.state.isOpen}>
-            {this.props.label}
-          </Button>
-        </div>
+        <Button
+          active={this.state.isOpen}
+          onClick={this.toggleOpen}
+        >
+          {this.props.label}
+        </Button>
         <div className={classNameContent}>
           {this.props.children}
         </div>

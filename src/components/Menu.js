@@ -46,6 +46,7 @@ const style = {
     padding: '8px 0',
     minWidth: 200,
     fontSize: 'medium',
+    fontFamily: 'BlinkMacSystemFont, sans-serif',
   },
   'MenuItem': {
     padding: '8px 18px',    

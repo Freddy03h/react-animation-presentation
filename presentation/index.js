@@ -58,7 +58,7 @@ export default class Presentation extends React.Component {
   render() {
     return (
       <Spectacle theme={theme}>
-        <Deck transition={["slide"]} transitionDuration={500}>
+        <Deck transition={["slide"]} transitionDuration={500} progress="bar" controls={false}>
 
           <Slide>
             <Heading size={1} fit caps>
@@ -72,14 +72,27 @@ export default class Presentation extends React.Component {
             </Heading>
           </Slide>
 
-          <Slide>
-            <Heading size={1}>
+          <Slide bgColor="secondary">
+            <Heading caps size={2} margin="0px 0px 40px" textColor="primary">
               DropDown Use Case
             </Heading>
 
             <DropDown1 label="Click me">
               <Menu/>
             </DropDown1>
+          </Slide>
+
+          <Slide>
+            <CodePane
+              lang="html"
+              source={require("raw!../src/examples/dropdown-use.example")}
+              margin="20px auto"
+            />
+            <CodePane
+              lang="jsx"
+              source={require("raw!../src/examples/dropdown.example")}
+              margin="20px auto"
+            />
           </Slide>
 
           {/******************************************/}

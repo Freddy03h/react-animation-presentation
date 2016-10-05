@@ -1,0 +1,38 @@
+.DropDown2 {
+  display: inline-block;
+  position: relative;
+}
+
+.DropDown2__Content {
+  position: absolute;
+  margin: 5px 0;
+  z-index: 10;
+  
+  transform-origin: 0% 0%;
+  
+  background-color: #FFF;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .35), 0 0 1px rgba(0, 0, 0, .25);
+}
+
+.DropDown2__Transiton-enter {
+  opacity: 0;
+  transform: scale(.9);
+}
+
+.DropDown2__Transiton-enter.DropDown2__Transiton-enter-active {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 100ms ease-in, transform 100ms ease-in;
+}
+
+.DropDown2__Transiton-leave {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.DropDown2__Transiton-leave.DropDown2__Transiton-leave-active {
+  opacity: 0;
+  transform: scale(.9);
+  transition: opacity 100ms ease-in, transform 100ms ease-in;
+}

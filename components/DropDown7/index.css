@@ -1,0 +1,16 @@
+.DropDown7 {
+  display: inline-block;
+  position: relative;
+}
+
+.DropDown7__Content {
+  position: absolute;
+  margin: 5px 0;
+  z-index: 10;
+  
+  transform-origin: 0% 0%;
+  
+  background-color: #FFF;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .35), 0 0 1px rgba(0, 0, 0, .25);
+}

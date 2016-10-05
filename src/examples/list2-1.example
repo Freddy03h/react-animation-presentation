@@ -1,0 +1,9 @@
+<ReactTransitionGroup>
+{
+  this.props.dataList.map((data, index) =>
+    <ListItemWrapper key={data.key} index={index}>
+      <ListItem {...data} />
+    </ListItemWrapper>
+  )
+}
+</ReactTransitionGroup>

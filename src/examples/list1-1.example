@@ -1,0 +1,11 @@
+<ReactCSSTransitionGroup
+  transitionName="List__Transiton"
+  transitionEnterTimeout={300}
+  transitionLeaveTimeout={300}
+>
+{
+  this.props.dataList.map((data) =>
+    <ListItem {...data} />
+  )
+}
+</ReactCSSTransitionGroup>

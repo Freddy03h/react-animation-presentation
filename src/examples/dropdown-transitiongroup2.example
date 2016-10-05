@@ -1,0 +1,38 @@
+componentWillEnter (done) {
+  const el = this.refs.root
+
+  el.addEventListener('transitionend',
+    (e) => {
+      if(e.propertyName !== 'opacity') return
+
+      el.classList.remove('DropDown__Transiton-enter')
+      el.classList.remove('DropDown__Transiton-enter-active')
+      done()
+    }
+  )
+
+  el.classList.add('DropDown__Transiton-enter')
+
+  requestAnimationFrame(() => {
+    el.classList.add('DropDown__Transiton-enter-active')
+  })
+}
+
+
+componentWillLeave (done) {
+  const el = this.refs.root
+
+  el.addEventListener('transitionend', (e) => {
+    if(e.propertyName !== 'opacity') return
+
+    el.classList.remove('DropDown__Transiton-leave')
+    el.classList.remove('DropDown__Transiton-leave-active')
+    done()
+  })
+
+  el.classList.add('DropDown__Transiton-leave')
+
+  requestAnimationFrame(() => {
+    el.classList.add('DropDown__Transiton-leave-active')
+  })
+}

@@ -1,0 +1,19 @@
+return (
+  <div className="DropDown3">
+    <div onClick={this.toggleOpen}>
+      <Button active={this.state.isOpen}>
+        {this.props.label}
+      </Button>
+    </div>
+    <ReactTransitionGroup>
+    {
+      this.state.isOpen &&
+        <DropDownContent
+          key="dropdown-content"
+        >
+          {this.props.children}
+        </DropDownContent>
+    }
+    </ReactTransitionGroup>
+  </div>
+)

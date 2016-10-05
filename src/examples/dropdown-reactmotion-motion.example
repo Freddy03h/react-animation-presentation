@@ -1,0 +1,19 @@
+<Motion
+  defaultStyle={{scale: 0.9, opacity: 0}}
+  style={{
+    scale: spring(this.state.isOpen ? 1 : 0.9, springConfig),
+    opacity: spring(this.state.isOpen ? 1 : 0, springConfig),
+  }}
+>
+  { ({opacity, scale}) =>
+    <div
+      className="DropDown__Content"
+      style={{
+        opacity,
+        transform: `scale(${scale})`,
+        visibility: opacity ? 'visible' : 'hidden'
+      }}>
+      {this.props.children}
+    </div>
+  }
+</Motion>

@@ -1,0 +1,24 @@
+return (
+  <div className="DropDown">
+    <div onClick={this.toggleOpen}>
+      <Button active={this.state.isOpen}>
+        {this.props.label}
+      </Button>
+    </div>
+    <ReactCSSTransitionGroup
+      transitionName="DropDown__Transiton"
+      transitionEnterTimeout={100}
+      transitionLeaveTimeout={100}
+    >
+    {
+      this.state.isOpen &&
+        <div
+          className="DropDown__Content"
+          key="dropdown-content"
+        >
+          {this.props.children}
+        </div>
+    }
+    </ReactCSSTransitionGroup>
+  </div>
+)

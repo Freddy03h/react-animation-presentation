@@ -21,12 +21,13 @@ import {
   Spectacle,
   Text
 } from "spectacle";
+import CodeSlide from 'spectacle-code-slide';
 
 // Import image preloader util
 import preloader from "spectacle/lib/utils/preloader";
 
 // Import theme
-import createTheme from "spectacle/lib/themes/default";
+import createTheme from "./theme";
 
 // Import custom component
 import Interactive from "../assets/interactive";
@@ -50,8 +51,24 @@ const theme = createTheme({
 });
 
 import {
-  Menu,
   DropDown1,
+  DropDown2,
+  DropDown3,
+  DropDown4,
+  DropDown5,
+  DropDown6,
+  DropDown7,
+  DropDown8,
+  Menu,
+  ListHandler,
+  List1,
+  List2,
+  List3,
+  List4,
+  OpenBehavior,
+  ItemTransform1,
+  ItemTransform2,
+  ListTransform2,
 } from '../src/components'
 
 export default class Presentation extends React.Component {
@@ -73,150 +90,466 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <Slide bgColor="secondary">
-            <Heading caps size={2} margin="0px 0px 40px" textColor="primary">
-              DropDown Use Case
+            <Heading caps fit size={2} textColor="tertiary">
+              DropDown
             </Heading>
-
-            <DropDown1 label="Click me">
-              <Menu/>
-            </DropDown1>
+            <Heading caps fit size={2} textColor="primary">
+              Use Case
+            </Heading>
           </Slide>
 
           <Slide>
             <CodePane
               lang="html"
               source={require("raw!../src/examples/dropdown-use.example")}
-              margin="20px auto"
+              margin="0 auto 40px"
+              textSize="26px"
             />
-            <CodePane
-              lang="jsx"
-              source={require("raw!../src/examples/dropdown.example")}
-              margin="20px auto"
-            />
+
+            <DropDown1 label="Click me">
+              <Menu/>
+            </DropDown1>
           </Slide>
 
-          {/******************************************/}
+          <CodeSlide
+            transition={["slide"]}
+            lang="jsx"
+            code={require("raw!../src/examples/dropdown.example")}
+            ranges={[
+              { loc: [0, 0], title: "DropDown" },
+              { loc: [2, 8], title: "Button" },
+              { loc: [8, 11], title: "Content" },
+            ]}
+          />
 
-          <Slide transition={["zoom"]} bgColor="primary">
-            <Heading size={1} fit caps lineHeight={1} textColor="black">
-              Spectacle
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              CSS Only
             </Heading>
-            <Heading size={1} fit caps>
-              A ReactJS Presentation Library
+
+            <List textColor="tertiary">
+              <ListItem>Pas besoin d'être spécifique à React</ListItem>
+              <ListItem>Utile quand il n'est pas nécéssaire de modifier le DOM</ListItem>
+              <ListItem>Utilise la technique avec visibility et delay</ListItem>
+            </List>
+
+            <DropDown1 label="Click me">
+              <Menu/>
+            </DropDown1>
+          </Slide>
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="jsx"
+            code={require("raw!../src/examples/dropdown-css1.example")}
+            ranges={[
+              { loc: [0, 0], title: "CSS Only" },
+              { loc: [3, 7], title: "Modifier class on Content" },
+              { loc: [16, 19] },
+            ]}
+          />
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="css"
+            code={require("raw!../src/examples/dropdown-css2.example")}
+            ranges={[
+              { loc: [0, 0], title: "CSS Only" },
+              { loc: [1, 4], title: "Default Hidden" },
+              { loc: [5, 13], title: "Visibility technique" },
+              { loc: [5, 7], title: "Delay for close transition" },
+              { loc: [16, 19], title: "Open State" },
+              { loc: [20, 21], title: "Delay for open transition" },
+            ]}
+          />
+
+
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              ReactCSSTransitionGroup
             </Heading>
-            <Heading size={1} fit caps textColor="black">
-              Where You Can Write Your Decks In JSX
+            <List textColor="tertiary">
+              <ListItem>API haut niveau</ListItem>
+              <ListItem>Anime en CSS un élément qui entre ou quitte le DOM</ListItem>
+              <ListItem>Utilise des classes css spécifiques pour chaques états (-enter, -enter-active, -leave, -leave-active, …)</ListItem>
+              <ListItem>Permet d'animer un ou plusieurs éléments (même animation ou animations différentes)</ListItem>
+            </List>
+            <DropDown2 label="Click me">
+              <Menu/>
+            </DropDown2>
+          </Slide>
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="jsx"
+            code={require("raw!../src/examples/dropdown-csstransitiongroup1.example")}
+            ranges={[
+              { loc: [0, 0], title: "ReactCSSTransitionGroup" },
+              { loc: [7, 22] },
+            ]}
+          />
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="css"
+            code={require("raw!../src/examples/dropdown-csstransitiongroup2.example")}
+            ranges={[
+              { loc: [0, 0], title: "ReactCSSTransitionGroup" },
+              { loc: [0, 4] },
+              { loc: [5, 10] },
+              { loc: [11, 15] },
+              { loc: [16, 21] },
+            ]}
+          />
+
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              ReactTransitionGroup + CSS
             </Heading>
-            <Link href="https://github.com/FormidableLabs/spectacle">
-              <Text bold caps textColor="tertiary">View on Github</Text>
-            </Link>
-            <Text textSize="1.5em" margin="20px 0px 0px" bold>Hit Your Right Arrow To Begin!</Text>
+            <List textColor="tertiary">
+              <ListItem>API bas niveau, utilisé par ReactCSSTransitionGroup</ListItem>
+              <ListItem>Anime un élément qui entre ou quitte le DOM</ListItem>
+              <ListItem>Permet d'animer un ou plusieurs éléments (même animation ou animations différents)</ListItem>
+              <ListItem>Les éléments possèdent de nouvelles méthodes pour gérer le cycle de vie lié à l'animation (componentWillAppear, componentWillEnter, …)</ListItem>
+            </List>
+            <DropDown3 label="Click me">
+              <Menu/>
+            </DropDown3>
           </Slide>
 
-          <Slide transition={["slide"]} bgColor="black" notes="You can even put notes on your slide. How awesome is that?">
-            <Image src={images.kat.replace("/", "")} margin="0px auto 40px" height="293px"/>
-            <Heading size={2} caps fit textColor="primary" textFont="primary">
-              Wait what?
+          <CodeSlide
+            transition={["slide"]}
+            lang="jsx"
+            code={require("raw!../src/examples/dropdown-transitiongroup1.example")}
+            ranges={[
+              { loc: [0, 0], title: "ReactTransitionGroup + CSS" },
+              { loc: [7, 17] },
+              { loc: [10, 15] },
+            ]}
+          />
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="jsx"
+            code={require("raw!../src/examples/dropdown-transitiongroup2.example")}
+            ranges={[
+              { loc: [0, 0], title: "DropDownContent" },
+              { loc: [0, 1], title: "componentWillEnter" },
+              { loc: [13, 18] },
+              { loc: [3, 12] },
+              { loc: [21, 22], title: "componentWillLeave" },
+              { loc: [32, 37] },
+              { loc: [24, 31] },
+            ]}
+          />
+
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              ReactTransitionGroup + GSAP (TweenLite, …)
             </Heading>
+            <List textColor="tertiary">
+              <ListItem>On peut utiliser une libraire JavaScript</ListItem>
+            </List>
+            <DropDown4 label="Click me">
+              <Menu/>
+            </DropDown4>
           </Slide>
 
-          <Slide transition={["zoom", "fade"]} bgColor="primary" notes="<ul><li>talk about that</li><li>and that</li></ul>">
-            <CodePane
-              lang="jsx"
-              source={require("raw!../assets/deck.example")}
-              margin="20px auto"
-            />
-          </Slide>
+          <CodeSlide
+            transition={["slide"]}
+            lang="jsx"
+            code={require("raw!../src/examples/dropdown-transitiongroupgsap.example")}
+            ranges={[
+              { loc: [0, 0], title: "ReactTransitionGroup + TweenLite" },
+              { loc: [0, 4] },
+              { loc: [5, 9] },
+            ]}
+          />
 
-          <Slide transition={["slide"]} bgImage={images.city.replace("/", "")} bgDarken={0.75}>
-            <Appear fid="1">
-              <Heading size={1} caps fit textColor="primary">
-                Full Width
-              </Heading>
-            </Appear>
-            <Appear fid="2">
-              <Heading size={1} caps fit textColor="tertiary">
-                Adjustable Darkness
-              </Heading>
-            </Appear>
-            <Appear fid="3">
-              <Heading size={1} caps fit textColor="primary">
-                Background Imagery
-              </Heading>
-            </Appear>
-          </Slide>
-
-          <Slide transition={["zoom", "fade"]} bgColor="primary">
-            <Heading caps fit>Flexible Layouts</Heading>
-            <Layout>
-              <Fill>
-                <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                  Left
-                </Heading>
-              </Fill>
-              <Fill>
-                <Heading size={4} caps textColor="secondary" bgColor="white" margin={10}>
-                  Right
-                </Heading>
-              </Fill>
-            </Layout>
-          </Slide>
-
-          <Slide transition={["slide"]} bgColor="black">
-            <BlockQuote>
-              <Quote>Wonderfully formatted quotes</Quote>
-              <Cite>Ken Wheeler</Cite>
-            </BlockQuote>
-          </Slide>
-
-          <Slide transition={["spin", "zoom"]} bgColor="tertiary">
-            <Heading caps fit size={1} textColor="primary">
-              Inline Markdown
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              ReactTransitionGroup + Web Animation API
             </Heading>
-            <Markdown>
-              {`
-![Markdown Logo](${images.markdown.replace("/", "")})
-
-You can write inline images, [Markdown Links](http://commonmark.org), paragraph text and most other markdown syntax
-* Lists too!
-* With ~~strikethrough~~ and _italic_
-* And lets not forget **bold**
-              `}
-            </Markdown>
+            <List textColor="tertiary">
+              <ListItem>Autre example avec Web Animation API</ListItem>
+            </List>
+            <DropDown5 label="Click me">
+              <Menu/>
+            </DropDown5>
           </Slide>
 
-          <Slide transition={["slide", "spin"]} bgColor="primary">
-            <Heading caps fit size={1} textColor="tertiary">
-              Smooth
-            </Heading>
-            <Heading caps fit size={1} textColor="secondary">
-              Combinable Transitions
-            </Heading>
-          </Slide>
+          <CodeSlide
+            transition={["slide"]}
+            lang="jsx"
+            code={require("raw!../src/examples/dropdown-transitiongroupweb.example")}
+            ranges={[
+              { loc: [0, 0], title: "ReactTransitionGroup + Web Animation API" },
+              { loc: [0, 11] },
+              { loc: [13, 24] },
+            ]}
+          />
 
-          <Slide transition={["fade"]} bgColor="secondary" textColor="primary">
-            <List>
-              <Appear><ListItem>Inline style based theme system</ListItem></Appear>
-              <Appear><ListItem>Autofit text</ListItem></Appear>
-              <Appear><ListItem>Flexbox layout system</ListItem></Appear>
-              <Appear><ListItem>React-Router navigation</ListItem></Appear>
-              <Appear><ListItem>PDF export</ListItem></Appear>
-              <Appear><ListItem>And...</ListItem></Appear>
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              react-motion
+            </Heading>
+            <List textColor="tertiary">
+              <ListItem>La spécificité de react-motion est surtout son approche de l'animation : utiliser une timing function différente</ListItem>
+              <ListItem>On anime avec spring(), plutôt que cubic-bezier() (et celles par défaut : ease, ease-in, …)</ListItem>
+              <ListItem>On ne parle plus de duration ou delay, mais de stiffness (rigidité) et damping (amortissement)</ListItem>
+              <ListItem>Un autre avantage est de pouvoir redéfinir l'animation en cours en gardant les règles physique de la 1re animation</ListItem>
             </List>
           </Slide>
 
-          <Slide transition={["slide"]} bgColor="primary">
-            <Heading size={1} caps fit textColor="tertiary">
-              Your presentations are interactive
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              react-motion with Motion
             </Heading>
-            <Interactive/>
+            <List textColor="tertiary">
+              <ListItem>Ne gère pas l'entrée et la sortie du DOM</ListItem>
+              <ListItem>Permet d'animer un seul élément</ListItem>
+              <ListItem>L'équivalent pour plusieurs éléments est StaggeredMotion</ListItem>
+            </List>
+            <DropDown6 label="Click me">
+              <Menu/>
+            </DropDown6>
           </Slide>
 
-          <Slide transition={["spin", "slide"]} bgColor="tertiary">
-            <Heading size={1} caps fit lineHeight={1.5} textColor="primary">
-              Made with love in Seattle by
+          <CodeSlide
+            transition={["slide"]}
+            lang="jsx"
+            code={require("raw!../src/examples/dropdown-reactmotion-motion.example")}
+            ranges={[
+              { loc: [0, 0], title: "react-motion with Motion" },
+              { loc: [0, 6] },
+              { loc: [7, 8] },
+              { loc: [10, 15] },
+            ]}
+          />
+
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              react-motion with TransitionMotion
             </Heading>
-            <Link href="http://www.formidablelabs.com"><Image width="100%" src={images.logo}/></Link>
+            <List textColor="tertiary">
+              <ListItem>Anime une liste d'éléments qui entrent ou quittent le DOM</ListItem>
+              <ListItem>Pas très pratique pour animer un seul élément</ListItem>
+              <ListItem>Plutôt prévu pour animer une liste de mêmes éléments</ListItem>
+            </List>
+            <DropDown7 label="Click me">
+              <Menu/>
+            </DropDown7>
+          </Slide>
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="jsx"
+            code={require("raw!../src/examples/dropdown-reactmotion-transitionmotion.example")}
+            ranges={[
+              { loc: [0, 0], title: "react-motion with TransitionMotion" },
+              { loc: [26, 31] },
+              { loc: [0, 4] },
+              { loc: [5, 9] },
+              { loc: [10, 23] },
+              { loc: [31, 42] },
+            ]}
+          />
+
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              react-flip-move
+            </Heading>
+            <List textColor="tertiary">
+              <ListItem>Anime une liste d'éléments qui entrent ou quittent le DOM</ListItem>
+              <ListItem>Utilisent la FLIP technique pour animer automatiquement le déplacement de tous les éléments</ListItem>
+              <ListItem>Peut animer n'importe quel ensemble d'éléments</ListItem>
+              <ListItem>Pas très utile pour animer un seul élément</ListItem>
+            </List>
+            <DropDown8 label="Click me">
+              <Menu/>
+            </DropDown8>
+          </Slide>
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="jsx"
+            code={require("raw!../src/examples/dropdown-flipmove.example")}
+            ranges={[
+              { loc: [0, 0], title: "react-flip-move" },
+              { loc: [0, 1] },
+              { loc: [3, 13] },
+              { loc: [13, 23] },
+            ]}
+          />
+
+          {/******************************************/}
+
+          <Slide bgColor="secondary">
+            <Heading caps fit size={2} textColor="tertiary">
+              List Items
+            </Heading>
+            <Heading caps fit size={2} textColor="primary">
+              Use Case
+            </Heading>
+          </Slide>
+
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              ReactCSSTransitionGroup
+            </Heading>
+            <List textColor="tertiary">
+              <ListItem>Anime en CSS un élément qui entre ou quitte le DOM</ListItem>
+              <ListItem>Mais ne prévoit rien pour animer les autres éléments</ListItem>
+              <ListItem>Ni le changement de position</ListItem>
+              <ListItem>Et ne donne aucun contrôle car API haut niveau</ListItem>
+            </List>
+          </Slide>
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="jsx"
+            code={require("raw!../src/examples/list1-1.example")}
+            ranges={[
+              { loc: [0, 0], title: "ReactCSSTransitionGroup" },
+              { loc: [0, 11] },
+            ]}
+          />
+
+          <Slide align="middle flex-start">
+            <ListHandler>
+              <List1 />
+            </ListHandler>
+          </Slide>
+
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              ReactTransitionGroup + Web Animation API
+            </Heading>
+            <List textColor="tertiary">
+              <ListItem>Permet d'animer en JavaScript un élément qui entre ou quitte le DOM</ListItem>
+              <ListItem>Rien n'est prévu pour animer les autres éléments, mais on a la main pour pouvoir le faire</ListItem>
+              <ListItem>Et faire aussi le changement de position par nous même</ListItem>
+            </List>
+          </Slide>
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="jsx"
+            code={require("raw!../src/examples/list2-1.example")}
+            ranges={[
+              { loc: [0, 0], title: "ReactTransitionGroup + Web Animation API" },
+              { loc: [0, 9] },
+            ]}
+          />
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="jsx"
+            code={require("raw!../src/examples/list2-2.example")}
+            ranges={[
+              { loc: [0, 0], title: "ReactTransitionGroup + Web Animation API" },
+              { loc: [0, 12] },
+              { loc: [13, 24] },
+              { loc: [25, 36] },
+            ]}
+          />
+
+          <Slide align="middle flex-start">
+            <ListHandler>
+              <List2 />
+            </ListHandler>
+          </Slide>
+
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              ReactTransitionGroup + Web Animation API
+            </Heading>
+            <List textColor="tertiary">
+              <ListItem>Ne fonctionne pas correctement pour Remove dans cet exemple</ListItem>
+              <ListItem>Dû au fait qu'il n'y a perte de correlation entre l'index de la collection et les éléments dans le DOM car l'élément supprimé est toujours à sa place dans le DOM pendant l'animation</ListItem>
+              <ListItem>Solution qui ne marche que pour une liste verticale d'éléments de taille identique</ListItem>
+              <ListItem>Le problème est de devoir recréer les calculs du Layout en JavaScript</ListItem>
+            </List>
+          </Slide>
+
+
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              react-motion with TransitionMotion
+            </Heading>
+            <List textColor="tertiary">
+              <ListItem>Anime un élément qui entre ou quitte le DOM</ListItem>
+              <ListItem>Il est théoriquement possible de faire bouger les autres éléments mais pas si simple à cause de l'API de react-motion</ListItem>
+              <ListItem>react-motion abstrait le DOM via sa structure TransitionStyle</ListItem>
+              <ListItem>Il n'est pas simple non plus de définir une animation d'un point de départ à un point d'arrivé</ListItem>
+              <ListItem>react-motion est pensé pour le changement de position toujours avec animation</ListItem>
+            </List>
+          </Slide>
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="jsx"
+            code={require("raw!../src/examples/list3-1.example")}
+            ranges={[
+              { loc: [0, 0], title: "react-motion" },
+              { loc: [0, 10] },
+              { loc: [19, 28] },
+            ]}
+          />
+
+          <Slide align="middle flex-start">
+            <ListHandler>
+              <List3 />
+            </ListHandler>
+          </Slide>
+
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              react-motion with TransitionMotion
+            </Heading>
+            <List textColor="tertiary">
+              <ListItem>Les exemples existant montrant les animations de ré-ordonnement ne sont pas fait avec TransitionMotion</ListItem>
+              <ListItem>Ils sont fait avec Motion ou StaggeredMotion, cela veut dire qu'il n'y a pas de modification du DOM</ListItem>
+              <ListItem>Les éléments ne changent jamais d'ordre dans le DOM, tout le Layout est fait avec translate</ListItem>
+            </List>
+          </Slide>
+
+
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              react-flip-move
+            </Heading>
+            <List textColor="tertiary">
+              <ListItem>Anime une liste d'éléments qui entrent, quittent ou bougent dans le DOM</ListItem>
+              <ListItem>Grâce à la FLIP technique, pas besoin de recalculer le Layout, on ne fait que calculer la différence entre l'ancien et le nouveau DOM</ListItem>
+              <ListItem>La librairie react-flip-move gèrent automatiquement les animations d'ajout, supprésion et déplacement</ListItem>
+              <ListItem>Elle possède plusieurs ensemble d'animations, et permet aussi de personnaliser</ListItem>
+            </List>
+          </Slide>
+
+          <CodeSlide
+            transition={["slide"]}
+            lang="jsx"
+            code={require("raw!../src/examples/list4-1.example")}
+            ranges={[
+              { loc: [0, 0], title: "react-flip-move" },
+              { loc: [0, 12] },
+            ]}
+          />
+
+          <Slide align="middle flex-start">
+            <ListHandler>
+              <List4 />
+            </ListHandler>
+          </Slide>
+
+          <Slide bgColor="secondary">
+            <Heading caps fit size={2} textColor="tertiary">
+              Transformation
+            </Heading>
+            <Heading caps fit size={2} textColor="primary">
+              Use Case
+            </Heading>
           </Slide>
 
         </Deck>

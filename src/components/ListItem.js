@@ -30,6 +30,7 @@ const style = {
     boxShadow: '0 1px 10px rgba(0, 0, 0, .2)',
     color: '#555555',
     fontSize: 22,
+    fontFamily: 'BlinkMacSystemFont, sans-serif',
     textAlign: 'left',
     lineHeight: '1.6em',
     

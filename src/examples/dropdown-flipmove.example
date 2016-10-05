@@ -1,0 +1,31 @@
+<FlipMove
+  easing="ease-in"
+  duration={100}
+  enterAnimation={{
+    from: {
+      transform: 'scale(0.9)',
+      opacity: 0,
+    },
+    to: {
+      transform: 'scale(1)',
+      opacity: 1,
+    }
+  }}
+  leaveAnimation={{
+    from: {
+      transform: 'scale(1)',
+      opacity: 1,
+    },
+    to: {
+      transform: 'scale(0.9)',
+      opacity: 0,
+    }
+  }}
+>
+  {
+    this.state.isOpen &&
+      <div className="DropDown__Content" key="dropdown-content">
+        {this.props.children}
+      </div>
+  }
+</FlipMove>

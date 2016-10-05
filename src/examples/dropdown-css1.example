@@ -1,0 +1,22 @@
+render() {
+  const { isOpen } = this.state
+
+  const classNameContent = classNames(
+    'DropDown__Content',
+    { 'DropDown__Content--open': isOpen },
+  )
+
+  return (
+    <div className='DropDown'>
+      <Button
+        active={isOpen}
+        onClick={this.toggleOpen}
+      >
+        {this.props.label}
+      </Button>
+      <div className={classNameContent}>
+        {this.props.children}
+      </div>
+    </div>
+  )
+}

@@ -23,7 +23,8 @@
     "react-dom": "^15.2.1",
     "react-flip-move": "^2.5.0",
     "react-motion": "^0.4.5",
-    "spectacle": "^1.0.0"
+    "spectacle": "^1.0.0",
+    "spectacle-code-slide": "^0.3.1"
   },
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",

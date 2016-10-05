@@ -52,7 +52,7 @@ const theme = createTheme({
 import {
   Menu,
   DropDown1,
-} from '../components'
+} from '../src/components'
 
 export default class Presentation extends React.Component {
   render() {

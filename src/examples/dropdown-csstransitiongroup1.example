@@ -6,7 +6,7 @@ return (
       </Button>
     </div>
     <ReactCSSTransitionGroup
-      transitionName="DropDown__Transiton"
+      transitionName="Transiton"
       transitionEnterTimeout={100}
       transitionLeaveTimeout={100}
     >

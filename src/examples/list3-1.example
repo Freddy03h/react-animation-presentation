@@ -17,9 +17,10 @@ render () {
         willEnter={ willEnter }
         willLeave={ willLeave }
       >
-        { (interpolatedStyles) =>
-            <div>
-              { interpolatedStyles.map(({data, style, key}) =>
+      { (interpolatedStyles) =>
+          <div>
+            { interpolatedStyles.map(
+              ({data, style, key}) =>
                 <ListItem
                   {...data}
                   style={{
@@ -27,9 +28,9 @@ render () {
                     transform: `scale(${style.scale})`,
                   }}
                 />
-              )}
-            </div>
-        }
+            )}
+          </div>
+      }
       </TransitionMotion>
     </div>
   )

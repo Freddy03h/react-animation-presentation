@@ -1,0 +1,49 @@
+componentWillReceiveProps() {
+  let prevBoundClientRect = {}
+
+  Object.keys(this.refs).forEach((key) => {
+    let el = this.refs[key]
+    prevBoundClientRect[key] =
+      el ? el.getBoundingClientRect() : null
+  })
+
+  this.setState({
+    prevBoundClientRect
+  })
+}
+
+componentDidUpdate() {
+  const allKeys =  [...new Set(Object.keys(this.state.prevBoundClientRect).concat(Object.keys(this.refs)))]
+
+  allKeys.forEach((key) => {
+    playElement(
+      this.refs[key],
+      this.state.prevBoundClientRect[key]
+    )
+  })
+}
+
+return (
+  <div
+    className={classNameRoot}
+    onClick={this.props.onClick}
+  >
+    <img
+      className="ItemTransform__Img"
+      src="image.jpg"
+      ref="image"
+    />
+    {
+      this.props.opened &&
+        <div className="ItemTransform__Body" ref="body">
+          <p className="ItemTransform__Title1">
+            Prophecy
+          </p>
+          <p className="ItemTransform__Title2">
+            Tome 1
+          </p>
+        </div>
+    }
+    <div className="ItemTransform__Layer" ref="layer" />
+  </div>
+)

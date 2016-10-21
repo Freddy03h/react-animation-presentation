@@ -55,6 +55,9 @@ class DropDown8 extends Component {
               {this.props.children}
             </div>
           }
+          {
+            !this.state.isOpen && <span />
+          }
         </FlipMove>
       </div>
     )

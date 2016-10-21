@@ -1,8 +1,8 @@
 <Motion
   defaultStyle={{scale: 0.9, opacity: 0}}
   style={{
-    scale: spring(this.state.isOpen ? 1 : 0.9, springConfig),
-    opacity: spring(this.state.isOpen ? 1 : 0, springConfig),
+    scale: spring(isOpen ? 1 : 0.9, springConfig),
+    opacity: spring(isOpen ? 1 : 0, springConfig),
   }}
 >
   { ({opacity, scale}) =>

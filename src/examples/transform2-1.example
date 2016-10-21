@@ -1,0 +1,29 @@
+<FlipMoveItem
+  className={classNameRoot}
+  onClick={this.props.onClick}
+  easing="ease-in"
+  duration={300}
+  enterAnimation={enterAnimationConfig}
+  leaveAnimation={leaveAnimationConfig}
+>
+  <img
+    className="ItemTransform__Img"
+    src={ volume.img }
+    key="image"
+  />
+  {
+    this.props.opened &&
+      <div className="ItemTransform__Body" key="body">
+        <p className="ItemTransform__Title1">
+          { volume.title }
+        </p>
+        <p className="ItemTransform__Title2">
+          { volume.subtitle }
+        </p>
+        <p className="ItemTransform__Resume">
+          { volume.resume }
+        </p>
+      </div>
+  }
+  <div className="ItemTransform__Layer" key="layer" />
+</FlipMoveItem>

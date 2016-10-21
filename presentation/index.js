@@ -19,7 +19,8 @@ import {
   Quote,
   Slide,
   Spectacle,
-  Text
+  Text,
+  Code,
 } from "spectacle";
 import CodeSlide from 'spectacle-code-slide';
 
@@ -112,13 +113,13 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="jsx"
             code={require("raw!../src/examples/dropdown.example")}
             ranges={[
               { loc: [0, 0], title: "DropDown" },
-              { loc: [2, 8], title: "Button" },
-              { loc: [8, 11], title: "Content" },
+              { loc: [2, 8], note: "Button" },
+              { loc: [8, 11], note: "Content" },
             ]}
           />
 
@@ -130,7 +131,7 @@ export default class Presentation extends React.Component {
             <List textColor="tertiary">
               <ListItem>Pas besoin d'être spécifique à React</ListItem>
               <ListItem>Utile quand il n'est pas nécéssaire de modifier le DOM</ListItem>
-              <ListItem>Utilise la technique avec visibility et delay</ListItem>
+              <ListItem>Utilise la technique avec <Code>visibility</Code> et <Code>delay</Code></ListItem>
             </List>
 
             <DropDown1 label="Click me">
@@ -139,27 +140,27 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="jsx"
             code={require("raw!../src/examples/dropdown-css1.example")}
             ranges={[
               { loc: [0, 0], title: "CSS Only" },
-              { loc: [3, 7], title: "Modifier class on Content" },
+              { loc: [3, 7], note: "Modifier class --open on Content" },
               { loc: [16, 19] },
             ]}
           />
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="css"
             code={require("raw!../src/examples/dropdown-css2.example")}
             ranges={[
               { loc: [0, 0], title: "CSS Only" },
-              { loc: [1, 4], title: "Default Hidden" },
-              { loc: [5, 13], title: "Visibility technique" },
-              { loc: [5, 7], title: "Delay for close transition" },
-              { loc: [16, 19], title: "Open State" },
-              { loc: [20, 21], title: "Delay for open transition" },
+              { loc: [1, 4], note: "Default is hidden" },
+              { loc: [5, 13], note: "Visibility technique" },
+              { loc: [5, 7], note: "Delay for close transition" },
+              { loc: [16, 19], note: "Open State" },
+              { loc: [20, 21], note: "Delay for open transition" },
             ]}
           />
 
@@ -180,7 +181,7 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="jsx"
             code={require("raw!../src/examples/dropdown-csstransitiongroup1.example")}
             ranges={[
@@ -190,15 +191,15 @@ export default class Presentation extends React.Component {
           />
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="css"
             code={require("raw!../src/examples/dropdown-csstransitiongroup2.example")}
             ranges={[
               { loc: [0, 0], title: "ReactCSSTransitionGroup" },
               { loc: [0, 4] },
-              { loc: [5, 10] },
-              { loc: [11, 15] },
-              { loc: [16, 21] },
+              { loc: [5, 12] },
+              { loc: [13, 17] },
+              { loc: [18, 25] },
             ]}
           />
 
@@ -210,7 +211,7 @@ export default class Presentation extends React.Component {
               <ListItem>API bas niveau, utilisé par ReactCSSTransitionGroup</ListItem>
               <ListItem>Anime un élément qui entre ou quitte le DOM</ListItem>
               <ListItem>Permet d'animer un ou plusieurs éléments (même animation ou animations différents)</ListItem>
-              <ListItem>Les éléments possèdent de nouvelles méthodes pour gérer le cycle de vie lié à l'animation (componentWillAppear, componentWillEnter, …)</ListItem>
+              <ListItem>Les éléments possèdent de nouvelles méthodes pour gérer le cycle de vie lié à l'animation (<Code>componentWillAppear</Code>, <Code>componentWillEnter</Code>, …)</ListItem>
             </List>
             <DropDown3 label="Click me">
               <Menu/>
@@ -218,7 +219,7 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="jsx"
             code={require("raw!../src/examples/dropdown-transitiongroup1.example")}
             ranges={[
@@ -229,15 +230,15 @@ export default class Presentation extends React.Component {
           />
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="jsx"
             code={require("raw!../src/examples/dropdown-transitiongroup2.example")}
             ranges={[
               { loc: [0, 0], title: "DropDownContent" },
-              { loc: [0, 1], title: "componentWillEnter" },
+              { loc: [0, 1], note: "componentWillEnter" },
               { loc: [13, 18] },
               { loc: [3, 12] },
-              { loc: [21, 22], title: "componentWillLeave" },
+              { loc: [21, 22], note: "componentWillLeave" },
               { loc: [32, 37] },
               { loc: [24, 31] },
             ]}
@@ -256,13 +257,13 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="jsx"
             code={require("raw!../src/examples/dropdown-transitiongroupgsap.example")}
             ranges={[
               { loc: [0, 0], title: "ReactTransitionGroup + TweenLite" },
-              { loc: [0, 4] },
-              { loc: [5, 9] },
+              { loc: [0, 9] },
+              { loc: [10, 19] },
             ]}
           />
 
@@ -279,11 +280,11 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="jsx"
             code={require("raw!../src/examples/dropdown-transitiongroupweb.example")}
             ranges={[
-              { loc: [0, 0], title: "ReactTransitionGroup + Web Animation API" },
+              { loc: [0, 0], title: "ReactTransitionGroup + Web Anim. API" },
               { loc: [0, 11] },
               { loc: [13, 24] },
             ]}
@@ -295,8 +296,8 @@ export default class Presentation extends React.Component {
             </Heading>
             <List textColor="tertiary">
               <ListItem>La spécificité de react-motion est surtout son approche de l'animation : utiliser une timing function différente</ListItem>
-              <ListItem>On anime avec spring(), plutôt que cubic-bezier() (et celles par défaut : ease, ease-in, …)</ListItem>
-              <ListItem>On ne parle plus de duration ou delay, mais de stiffness (rigidité) et damping (amortissement)</ListItem>
+              <ListItem>On anime avec <Code>spring()</Code>, plutôt que <Code>cubic-bezier()</Code> (et celles par défaut : <Code>ease</Code>, <Code>ease-in</Code>, …)</ListItem>
+              <ListItem>On ne parle plus de <Code>duration</Code> ou <Code>delay</Code>, mais de <Code>stiffness</Code> (rigidité) et <Code>damping</Code> (amortissement)</ListItem>
               <ListItem>Un autre avantage est de pouvoir redéfinir l'animation en cours en gardant les règles physique de la 1re animation</ListItem>
             </List>
           </Slide>
@@ -308,7 +309,7 @@ export default class Presentation extends React.Component {
             <List textColor="tertiary">
               <ListItem>Ne gère pas l'entrée et la sortie du DOM</ListItem>
               <ListItem>Permet d'animer un seul élément</ListItem>
-              <ListItem>L'équivalent pour plusieurs éléments est StaggeredMotion</ListItem>
+              <ListItem>L'équivalent pour plusieurs éléments est <Code>StaggeredMotion</Code></ListItem>
             </List>
             <DropDown6 label="Click me">
               <Menu/>
@@ -316,12 +317,12 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="jsx"
             code={require("raw!../src/examples/dropdown-reactmotion-motion.example")}
             ranges={[
               { loc: [0, 0], title: "react-motion with Motion" },
-              { loc: [0, 6] },
+              { loc: [0, 7] },
               { loc: [7, 8] },
               { loc: [10, 15] },
             ]}
@@ -342,7 +343,7 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="jsx"
             code={require("raw!../src/examples/dropdown-reactmotion-transitionmotion.example")}
             ranges={[
@@ -371,7 +372,7 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="jsx"
             code={require("raw!../src/examples/dropdown-flipmove.example")}
             ranges={[
@@ -406,7 +407,7 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="jsx"
             code={require("raw!../src/examples/list1-1.example")}
             ranges={[
@@ -433,7 +434,7 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="jsx"
             code={require("raw!../src/examples/list2-1.example")}
             ranges={[
@@ -443,14 +444,14 @@ export default class Presentation extends React.Component {
           />
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="jsx"
             code={require("raw!../src/examples/list2-2.example")}
             ranges={[
               { loc: [0, 0], title: "ReactTransitionGroup + Web Animation API" },
-              { loc: [0, 12] },
-              { loc: [13, 24] },
-              { loc: [25, 36] },
+              { loc: [0, 14] },
+              { loc: [15, 26] },
+              { loc: [27, 38] },
             ]}
           />
 
@@ -466,9 +467,9 @@ export default class Presentation extends React.Component {
             </Heading>
             <List textColor="tertiary">
               <ListItem>Ne fonctionne pas correctement pour Remove dans cet exemple</ListItem>
-              <ListItem>Dû au fait qu'il n'y a perte de correlation entre l'index de la collection et les éléments dans le DOM car l'élément supprimé est toujours à sa place dans le DOM pendant l'animation</ListItem>
+              <ListItem>Dû au fait qu'il y a perte de correlation entre l'index de la collection et les éléments dans le DOM car l'élément supprimé est toujours à sa place dans le DOM pendant l'animation</ListItem>
               <ListItem>Solution qui ne marche que pour une liste verticale d'éléments de taille identique</ListItem>
-              <ListItem>Le problème est de devoir recréer les calculs du Layout en JavaScript</ListItem>
+              <ListItem>Le problème est de devoir recréer les calculs du Layout en JS</ListItem>
             </List>
           </Slide>
 
@@ -480,20 +481,19 @@ export default class Presentation extends React.Component {
             <List textColor="tertiary">
               <ListItem>Anime un élément qui entre ou quitte le DOM</ListItem>
               <ListItem>Il est théoriquement possible de faire bouger les autres éléments mais pas si simple à cause de l'API de react-motion</ListItem>
-              <ListItem>react-motion abstrait le DOM via sa structure TransitionStyle</ListItem>
-              <ListItem>Il n'est pas simple non plus de définir une animation d'un point de départ à un point d'arrivé</ListItem>
-              <ListItem>react-motion est pensé pour le changement de position toujours avec animation</ListItem>
+              <ListItem>react-motion abstrait le DOM via sa structure <Code>TransitionStyle</Code></ListItem>
+              <ListItem>Il n'est pas simple non plus de définir une animation d'un point de départ à un point d'arrivé car react-motion est pensé pour le changement de position toujours avec animation</ListItem>
             </List>
           </Slide>
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="jsx"
             code={require("raw!../src/examples/list3-1.example")}
             ranges={[
               { loc: [0, 0], title: "react-motion" },
               { loc: [0, 10] },
-              { loc: [19, 28] },
+              { loc: [19, 33] },
             ]}
           />
 
@@ -508,9 +508,9 @@ export default class Presentation extends React.Component {
               react-motion with TransitionMotion
             </Heading>
             <List textColor="tertiary">
-              <ListItem>Les exemples existant montrant les animations de ré-ordonnement ne sont pas fait avec TransitionMotion</ListItem>
-              <ListItem>Ils sont fait avec Motion ou StaggeredMotion, cela veut dire qu'il n'y a pas de modification du DOM</ListItem>
-              <ListItem>Les éléments ne changent jamais d'ordre dans le DOM, tout le Layout est fait avec translate</ListItem>
+              <ListItem>Les exemples existant montrant les animations de ré-ordonnement ne sont pas fait avec <Code>TransitionMotion</Code></ListItem>
+              <ListItem>Ils sont fait avec <Code>Motion</Code> ou <Code>StaggeredMotion</Code>, cela veut dire qu'il n'y a pas de modification du DOM</ListItem>
+              <ListItem>Les éléments ne changent jamais d'ordre dans le DOM, tout le Layout est fait avec <Code>translate</Code></ListItem>
             </List>
           </Slide>
 
@@ -528,7 +528,7 @@ export default class Presentation extends React.Component {
           </Slide>
 
           <CodeSlide
-            transition={["slide"]}
+            transition={[]}
             lang="jsx"
             code={require("raw!../src/examples/list4-1.example")}
             ranges={[
@@ -549,6 +549,94 @@ export default class Presentation extends React.Component {
             </Heading>
             <Heading caps fit size={2} textColor="primary">
               Use Case
+            </Heading>
+          </Slide>
+
+          <Slide>
+            <OpenBehavior>
+              <ItemTransform1 />
+            </OpenBehavior>
+          </Slide>
+
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              F.L.I.P. hand made
+            </Heading>
+            <List textColor="tertiary">
+              <ListItem>Faire la différence de Layout, avant et après changement avec <Code>getBoundingClientRect()</Code></ListItem>
+              <ListItem>Avant: <Code>componentWillReceiveProps</Code></ListItem>
+              <ListItem>Après: <Code>componentDidUpdate</Code></ListItem>
+            </List>
+          </Slide>
+
+          <CodeSlide
+            transition={[]}
+            lang="jsx"
+            code={require("raw!../src/examples/transform1-1.example")}
+            ranges={[
+              { loc: [0, 0], title: "F.L.I.P. hand made" },
+              { loc: [30, 47] },
+              { loc: [0, 13] },
+              { loc: [14, 24] },
+            ]}
+          />
+
+          <CodeSlide
+            transition={[]}
+            lang="jsx"
+            code={require("raw!../src/examples/transform1-2.example")}
+            ranges={[
+              { loc: [0, 0], title: "F.L.I.P. hand made" },
+              { loc: [4, 5] },
+              { loc: [7, 15] },
+              { loc: [16, 18] },
+              { loc: [20, 33] },
+            ]}
+          />
+
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              F.L.I.P. hand made
+            </Heading>
+            <List textColor="tertiary">
+              <ListItem>Il manque la gestion du remove : il faudrait gérer un component 'fantôme'</ListItem>
+              <ListItem><Code>getBoundingClientRect()</Code> est par rapport au viewport, il faudrait qu'il soit relatif pour gérer l'imbrication</ListItem>
+              <ListItem>Ce sont des problématiques que gère déjà react-flip-move</ListItem>
+            </List>
+          </Slide>
+
+          <Slide>
+            <Heading size={2} textColor="secondary">
+              react-flip-move + fork
+            </Heading>
+            <List textColor="tertiary">
+              <ListItem>Gérer le scale en plus du translate</ListItem>
+              <ListItem>Il faut placer les <Code>transform-origin</Code> des éléments de l'item au coin top left de l'item</ListItem>
+            </List>
+          </Slide>
+
+
+          <Slide>
+            <ListTransform2 />
+          </Slide>
+
+          <CodeSlide
+            transition={[]}
+            lang="jsx"
+            code={require("raw!../src/examples/transform2-1.example")}
+            ranges={[
+              { loc: [0, 0], title: "react-flip-move + fork" },
+              { loc: [0, 7] },
+              { loc: [14, 26] },
+            ]}
+          />
+
+          <Slide>
+            <Heading size={1} fit caps>
+              Merci
+            </Heading>
+            <Heading size={1} fit caps lineHeight={1} textColor="black">
+              <Link href="https://twitter.com/HarrisFreddy">@harrisfreddy</Link>
             </Heading>
           </Slide>
 

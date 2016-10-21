@@ -1,21 +1,25 @@
-.DropDown__Transiton-enter {
+.Transiton-enter {
   opacity: 0;
   transform: scale(.9);
 }
 
-.DropDown__Transiton-enter.DropDown__Transiton-enter-active {
+.Transiton-enter.Transiton-enter-active {
   opacity: 1;
   transform: scale(1);
-  transition: opacity 100ms ease-in, transform 100ms ease-in;
+  transition:
+    opacity 100ms ease-in,
+    transform 100ms ease-in;
 }
 
-.DropDown__Transiton-leave {
+.Transiton-leave {
   opacity: 1;
   transform: scale(1);
 }
 
-.DropDown__Transiton-leave.DropDown__Transiton-leave-active {
+.Transiton-leave.Transiton-leave-active {
   opacity: 0;
   transform: scale(.9);
-  transition: opacity 100ms ease-in, transform 100ms ease-in;
+  transition:
+    opacity 100ms ease-in,
+    transform 100ms ease-in;
 }

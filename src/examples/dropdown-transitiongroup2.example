@@ -5,16 +5,16 @@ componentWillEnter (done) {
     (e) => {
       if(e.propertyName !== 'opacity') return
 
-      el.classList.remove('DropDown__Transiton-enter')
-      el.classList.remove('DropDown__Transiton-enter-active')
+      el.classList.remove('Transiton-enter')
+      el.classList.remove('Transiton-enter-active')
       done()
     }
   )
 
-  el.classList.add('DropDown__Transiton-enter')
+  el.classList.add('Transiton-enter')
 
   requestAnimationFrame(() => {
-    el.classList.add('DropDown__Transiton-enter-active')
+    el.classList.add('Transiton-enter-active')
   })
 }
 
@@ -25,14 +25,14 @@ componentWillLeave (done) {
   el.addEventListener('transitionend', (e) => {
     if(e.propertyName !== 'opacity') return
 
-    el.classList.remove('DropDown__Transiton-leave')
-    el.classList.remove('DropDown__Transiton-leave-active')
+    el.classList.remove('Transiton-leave')
+    el.classList.remove('Transiton-leave-active')
     done()
   })
 
-  el.classList.add('DropDown__Transiton-leave')
+  el.classList.add('Transiton-leave')
 
   requestAnimationFrame(() => {
-    el.classList.add('DropDown__Transiton-leave-active')
+    el.classList.add('Transiton-leave-active')
   })
 }

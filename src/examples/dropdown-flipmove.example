@@ -24,7 +24,10 @@
 >
   {
     this.state.isOpen &&
-      <div className="DropDown__Content" key="dropdown-content">
+      <div
+        className="DropDown__Content"
+        key="dropdown-content"
+      >
         {this.props.children}
       </div>
   }

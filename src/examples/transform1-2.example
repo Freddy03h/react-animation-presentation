@@ -1,0 +1,35 @@
+const playElement = (element, prevRect) => {
+  if (!element) {
+    return
+  }
+  const newRect = element.getBoundingClientRect()
+
+  let transformInvert, opacityInvert
+  if(prevRect) {
+    transformInvert = `
+      translateX(${prevRect.left - newRect.left}px)
+      translateY(${prevRect.top - newRect.top}px)
+      scaleX(${prevRect.width / newRect.width})
+      scaleY(${prevRect.height / newRect.height})
+    `
+    opacityInvert = 1
+  } else {
+    transformInvert = 'initial'
+    opacityInvert = 0
+  }
+
+  element.animate(
+    [
+      {
+        transform: transformInvert,
+        opacity: opacityInvert
+      },
+      { transform: 'initial', opacity: 1 },
+    ],
+    {
+      duration: 300,
+      ease: 'ease-in',
+    }
+  )
+}
+

@@ -7,6 +7,7 @@
   margin: 10px;
   position: relative;
   box-sizing: border-box;
+  font-family: BlinkMacSystemFont, sans-serif;
 
   will-change: transform;
 }

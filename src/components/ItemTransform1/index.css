@@ -6,6 +6,7 @@
   margin: auto;
   position: relative;
   box-sizing: border-box;
+  font-family: BlinkMacSystemFont, sans-serif;
 }
 
 .ItemTransform1--open {

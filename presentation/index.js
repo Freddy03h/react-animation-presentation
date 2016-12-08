@@ -328,7 +328,7 @@ export default class Presentation extends React.Component {
             ]}
           />
 
-          <Slide>
+          {/*<Slide>
             <Heading size={2} textColor="secondary">
               react-motion with TransitionMotion
             </Heading>
@@ -381,7 +381,7 @@ export default class Presentation extends React.Component {
               { loc: [3, 13] },
               { loc: [13, 23] },
             ]}
-          />
+          />*/}
 
           {/******************************************/}
 
@@ -392,6 +392,12 @@ export default class Presentation extends React.Component {
             <Heading caps fit size={2} textColor="primary">
               Use Case
             </Heading>
+          </Slide>
+
+          <Slide align="middle flex-start">
+            <ListHandler>
+              <List4 />
+            </ListHandler>
           </Slide>
 
           <Slide>
@@ -522,7 +528,7 @@ export default class Presentation extends React.Component {
             <List textColor="tertiary">
               <ListItem>Anime une liste d'éléments qui entrent, quittent ou bougent dans le DOM</ListItem>
               <ListItem>Grâce à la FLIP technique, pas besoin de recalculer le Layout, on ne fait que calculer la différence entre l'ancien et le nouveau DOM</ListItem>
-              <ListItem>La librairie react-flip-move gèrent automatiquement les animations d'ajout, supprésion et déplacement</ListItem>
+              <ListItem>La librairie react-flip-move gèrent automatiquement les animations d'ajout, suppréssion et déplacement</ListItem>
               <ListItem>Elle possède plusieurs ensemble d'animations, et permet aussi de personnaliser</ListItem>
             </List>
           </Slide>
